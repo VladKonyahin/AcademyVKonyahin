@@ -1,8 +1,19 @@
 body {
-	background-color: #F0FFFF;
+	background-color: #F8F8FF;
 }
 
 #letter { 
      font-family: serif;
      top: 5px;
     }
+
+#add {	
+	color: black;
+	font-size: 25px;
+	font-weight: 900;
+}
+
+.title {
+	font-size: 18px;
+	font-weight: 600;
+}

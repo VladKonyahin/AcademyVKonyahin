@@ -15,8 +15,8 @@
 		I am going to become a professional programmer.";
 		?>
 		</span>
-		<img src="images/avatar.jpeg"/>
 	</div>
+	<img src="images/avatar.jpg"/>
 	<td><a href="https://github.com/VladKonyahin">My page on GitHub</a></td>
 	</body>
 </html>
