@@ -10,18 +10,18 @@ include("functions.php");
 		<title>Add trophies</title>
 	</head>
 	<body>
-		<form name='addTrophy' method="post">
+		<form name="addTrophy" method="post">
 			Name
 			<br/>
 			<input type="text" name="name">
 			<br/>
 			Year of foundation
 			<br/>
-			<input type='text' class='field' name='foundation'/>
-			<input type='submit' name='submitTrophy' class='button' value='Add'/>
+			<input type="text" name="foundation"/>
+			<input type="submit" name="submitTrophy" class="button" value="Add"/>
 			<hr/>
-			<input type='text' class='field' name='trophy_id'/>
-			<input type='submit' name='deleteTrophy' class='button' value='Delete'/>
+			<input type="text" name='trophy_id'/>
+			<input type="submit" name="deleteTrophy" class="button" value="Delete"/>
 		</form>
 <?php
 	if (isset($_REQUEST['submitTrophy'])) {

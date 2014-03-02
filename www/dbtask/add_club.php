@@ -10,14 +10,14 @@ include("functions.php");
 		<title>Add stadium</title>
 	</head>
 	<body>
-		<form name='addClub' method="post">
+		<form name="addClub" method="post">
 			Name
 			<br/>
 			<input type="text" name="name">
 			<br/>
 			Year of foundation
 			<br/>
-			<input type='date'  name="foundation"/>
+			<input type="date"  name="foundation"/>
 			<br/>
 			Trophies
 			<br/>
@@ -51,10 +51,10 @@ include("functions.php");
 			<?php getStadiums(); ?>
 			</select>
 			<br/>
-			<input type='submit' name='submitClub' class='button' value='Add'/>
+			<input type="submit" name="submitClub" class="button" value="Add"/>
 			<hr/>
-			<input type='text' class='field' name='club_id'/>
-			<input type='submit' name='deleteClub' class='button' value='Delete'/>
+			<input type="text" name="club_id"/>
+			<input type="submit" name="deleteClub" class="button" value="Delete"/>
 		</form>
 <?php
 	if (isset($_REQUEST['submitClub'])) {

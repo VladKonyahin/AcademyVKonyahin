@@ -10,18 +10,18 @@ include("functions.php");
 		<title>Add person</title>
 	</head>
 	<body>
-		<form name='addTrophy' method="post">
+		<form name="addTrophy" method="post">
 			First name
 			<br/>
 			<input type="text" name="first_name">
 			<br/>
 			Last name
 			<br/>
-			<input type='text' class='field' name='last_name'/>
-			<input type='submit' name='submitPerson' class='button' value='Add'/>
+			<input type="text" class="field" name="last_name"/>
+			<input type="submit" name="submitPerson" class="button" value="Add"/>
 			<hr/>
-			<input type='text' class='field' name='person_id'/>
-			<input type='submit' name='deletePerson' class='button' value='Delete'/>
+			<input type="text" name="person_id"/>
+			<input type="submit" name="deletePerson" class="button" value="Delete"/>
 		</form>
 <?php
 	if (isset($_REQUEST['submitPerson'])) {

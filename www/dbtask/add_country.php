@@ -10,19 +10,19 @@ include("functions.php");
 		<title>Add country</title>
 	</head>
 	<body>
-		<form name='addCountry' method="post">
+		<form name="addCountry" method="post">
 			City
 			<br/>
 			<input type="text" name="city">
 			<br/>
 			Country
 			<br/>
-			<input type='text' class='field' name='country'/>
+			<input type="text" name="country"/>
 			<br/>
-			<input type='submit' name='submitCountry' class='button' value='Add'/>
+			<input type="submit" name="submitCountry" class="button" value="Add"/>
 			<hr/>
-			<input type='text' class='field' name='country_id'/>
-			<input type='submit' name='deleteCountry' class='button' value='Delete'/>
+			<input type="text" name="country_id"/>
+			<input type="submit" name="deleteCountry" class="button" value="Delete"/>
 		</form>
 <?php
 	if (isset($_REQUEST['submitCountry'])) {

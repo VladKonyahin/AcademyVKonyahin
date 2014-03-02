@@ -31,10 +31,10 @@ include("functions.php");
 		<?php getPersons(); ?>
 		</select>
 		<br/>
-		<input type='submit' name='submitLeague' class='button' value='Add' />
+		<input type="submit" name="submitLeague" class="button" value="Add" />
 		<hr/>
-		<input type='text' class='field' name='league_id' />
-		<input type='submit' name='deleteLeague' class='button' value='Delete' />
+		<input type="text" name="league_id" />
+		<input type="submit" name="deleteLeague" class="button" value="Delete" />
 	</form>
 <?php
 if(isset($_REQUEST["submitLeague"])) {

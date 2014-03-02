@@ -10,23 +10,23 @@ include("functions.php");
 		<title>Add stadium</title>
 	</head>
 	<body>
-		<form name='addStadium' method="post">
+		<form name="addStadium" method="post">
 			Name
 			<br/>
 			<input type="text" name="stadium_name">
 			<br/>
 			Year of foundation
 			<br/>
-			<input type='date' class='field' name='foundation'/>
+			<input type="date" name="foundation"/>
 			<br/>
 			Capacity
 			<br/>
 			<input type="number" name="capacity"/>
 			<br/>
-			<input type='submit' name='submitStadium' class='button' value='Add'/>
+			<input type="submit" name="submitStadium" class="button" value="Add"/>
 			<hr/>
-			<input type='text' class='field' name='stadium_id'/>
-			<input type='submit' name='deleteStadium' class='button' value='Delete'/>
+			<input type="text" name="stadium_id"/>
+			<input type="submit" name="deleteStadium" class="button" value="Delete"/>
 		</form>
 <?php
 	if (isset($_REQUEST['submitStadium'])) {

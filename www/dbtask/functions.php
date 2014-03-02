@@ -62,28 +62,28 @@ $result = mysql_query($query);
 }
 
 function removeStadium($id){
-$query = "DELETE FROM stadiums WHERE id=".intval($id);
-$result = mysql_query($query);	
+	$query = "DELETE FROM stadiums WHERE id=".intval($id);
+	$result = mysql_query($query);	
 }
 
 function removePerson($id){
-$query = "DELETE FROM persons WHERE id=".intval($id);
-$result = mysql_query($query);	
+	$query = "DELETE FROM persons WHERE id=".intval($id);
+	$result = mysql_query($query);	
 }
 
 function removeTrophy($id){
-$query = "DELETE FROM trophies WHERE id=".intval($id);
-$result = mysql_query($query);	
+	$query = "DELETE FROM trophies WHERE id=".intval($id);
+	$result = mysql_query($query);	
 }
 
 function removeLeague($id){
-$query = "DELETE FROM leagues WHERE id=".intval($id);
-$result = mysql_query($query);	
+	$query = "DELETE FROM leagues WHERE id=".intval($id);
+	$result = mysql_query($query);	
 }
 
 function removeClub($id){
-$query = "DELETE FROM clubs WHERE id=".intval($id);
-$result = mysql_query($query);	
+	$query = "DELETE FROM clubs WHERE id=".intval($id);
+	$result = mysql_query($query);	
 }
 
 

@@ -11,6 +11,7 @@
 		<a href="add_trophy.php"><h3>Add trophy</h3></a>
 		<a href="add_person.php"><h3>Add person</h3></a>
 		<a href="add_country.php"><h3>Add country</h3></a>
+		<a href="search.php"><h3>Search</h3></a>
 	</body>
 </html>
 
