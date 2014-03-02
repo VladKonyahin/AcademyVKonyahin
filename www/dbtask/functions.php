@@ -56,18 +56,6 @@ function getStadiums() {
 	}
 }
 
-function rowsGen($row) {
-	$newRow = "<tr>";
-	foreach ($row as $col) {
-		if (!is_null($col)) {
-			$newRow = $newRow."<td>".$col."</td>";
-		} else {
-			$newRow = $newRow."<td>-</td>";
-			}
-		}
-		return $newRow."</tr>";
-}
-
 function removeCountry($id){
 $query = "DELETE FROM countries WHERE id=".intval($id);
 $result = mysql_query($query);	
@@ -96,30 +84,6 @@ $result = mysql_query($query);
 function removeClub($id){
 $query = "DELETE FROM clubs WHERE id=".intval($id);
 $result = mysql_query($query);	
-}
-
-function showClubs($order = NULL) {
-	$query = "SELECT clubs.name, clubs.foundation, clubs.trophies, clubs.budget, countries.city, countries.country, persons.last_name, stadiums.stadium_name, leagues.league_name
-					FROM clubs
-					JOIN countries ON clubs.country_id = countries.id
-					JOIN persons ON clubs.person_id = persons.id
-					JOIN stadiums ON clubs.stadium_id = stadiums.id
-					JOIN leagues ON clubs.league_id = leagues.id";
-	$result = mysql_query($query);
-	print("<table border=3><tr><td>Club name</td>
-								<td>City</td>
-								<td>Country</td>
-								<td>President</td>
-								<td>Foundation</td>
-								<td>Trophies</td>
-								<td>Budget</td>
-								<td>Leagues</td>
-								<td>Stadium</td>
-							</tr>");
-	while($row = mysql_fetch_array($result,MYSQL_ASSOC)) {
-			print(rowsGen($row));
-		}
-	print("</table>");
 }
 
 
