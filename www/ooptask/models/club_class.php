@@ -22,6 +22,10 @@ public function getId() {
 	return $this->id;
 }
 
+public function getName() {
+	return $this->name;
+}
+
 public function getLeagueId() {
 	return $this->league_id;
 }
@@ -153,11 +157,11 @@ public function search($word) {
 	public static function getList() {
 	$db = new Database();
 	$con = $db->getConnect();
-	$sqlQuery = "SELECT `id`, `league_name` FROM `leagues`";
+	$sqlQuery = "SELECT `id`, `name` FROM `clubs`";
 	$result = $db->getQueryResult($con, $sqlQuery);
-	print("<select name='leagues'>");
+	print("<select name='clubs'>");
 	while($leagues = mysql_fetch_array($result,MYSQL_ASSOC)) {
-		print("<option value='".$leagues['id']."'>".$leagues['league_name']."</option>");
+		print("<option value='".$leagues['id']."'>".$leagues['name']."</option>");
 		}
 	print("</select>");
 	$db->closeConnection($result, $con);
