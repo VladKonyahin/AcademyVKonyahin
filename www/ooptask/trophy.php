@@ -9,7 +9,7 @@ include ('models/trophy_class.php');
 	<title>Add trophy</title>
 </head>
 <body>
-	<form name="addPerson" method="post">
+	<form name="addTrophy" method="post">
 		Trophy name
 		<br/>
 		<input type="text" name="name"/>

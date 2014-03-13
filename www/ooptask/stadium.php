@@ -9,7 +9,7 @@ include ('models/stadium_class.php');
 	<title>Add stadium</title>
 </head>
 <body>
-	<form name="addPerson" method="post">
+	<form name="addStadium" method="post">
 		Stadium name
 		<br/>
 		<input type="text" name="stadium_name"/>
