@@ -69,7 +69,7 @@ public function insert($value) {
 
 public function update() {
 	$con = $this->getConnect();
-	$sqlQuery = "UPDATE trophies SET `name`='".$this->name."' WHERE `id`=".intval($this->id);
+	$sqlQuery = "UPDATE leagues SET `league_name`='".$this->league_name."' WHERE `id`=".intval($this->id);
 	$this->getQueryResult($con, $sqlQuery);
 	mysql_close($con);
 }
@@ -81,15 +81,29 @@ public function delete($index) {
 	mysql_close($con);
 }
 
-public function search($value) {
+public function search($word) {
 	$con = $this->getConnect();
-	$sqlQuery = "SELECT name, foundation FROM trophies WHERE `name` LIKE '%".$value."%'";
-	$result = $this->getQueryResult($con, $sqlQuery);
-	print("<table border=1><tr><th>name</th><th>foundation</th></tr>");
-	while($row = mysql_fetch_array($result,MYSQL_ASSOC)) {
-		print(Support::rowsGen($row));
-		}
-	print("</table");
+	$sqlQuery = "SELECT league_name, rating, countries.country, persons.last_name FROM leagues
+				JOIN countries ON leagues.country_id = countries.id
+				JOIN persons ON leagues.person_id = persons.id
+				WHERE `league_name` LIKE '%".$word."%'";
+	$result = $this->getQueryResult($con, $sqlQuery);?>
+	<table border=3>
+		<tr>
+			<th>League name</th>
+			<th>Rating</th>
+			<th>Country</th>
+			<th>President</th>
+		</tr> <?
+	while($leagues = mysql_fetch_array($result,MYSQL_ASSOC)) {?>
+		<tr>
+			<td><?print($leagues['league_name'])?></td>
+			<td><?print($leagues['rating'])?></td>
+			<td><?print($leagues['country'])?></td>
+			<td><?print($leagues['last_name'])?></td>
+		</tr>
+		<?}?>
+	</table> <?
 	$this->closeConnection($result, $con);
 }
 

@@ -65,15 +65,22 @@ public function delete($index) {
 	mysql_close($con);
 }
 
-public function search($value) {
+public function search($word) {
 	$con = $this->getConnect();
-	$sqlQuery = "SELECT name, foundation FROM trophies WHERE `name` LIKE '%".$value."%'";
-	$result = $this->getQueryResult($con, $sqlQuery);
-	print("<table border=1><tr><th>name</th><th>foundation</th></tr>");
-	while($row = mysql_fetch_array($result,MYSQL_ASSOC)) {
-		print(Support::rowsGen($row));
-		}
-	print("</table");
+	$sqlQuery = "SELECT name, foundation FROM trophies WHERE `name` LIKE '%".$word."%'";
+	$result = $this->getQueryResult($con, $sqlQuery); ?>
+	<table border=3>
+		<tr>
+			<th>Name</th>
+			<th>Year of foundation</th>
+		</tr> <?
+	while($trophies = mysql_fetch_array($result,MYSQL_ASSOC)) {?>
+		<tr>
+			<td><?print($trophies['name'])?></td>
+			<td><?print($trophies['foundation'])?></td>
+		</tr>
+		<?} ?>
+	</table><?
 	$this->closeConnection($result, $con);
 }
 

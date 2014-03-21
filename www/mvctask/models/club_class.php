@@ -111,20 +111,39 @@ public function delete($index) {
 	mysql_close($con);
 }
 
-public function search($part_of_word) {
+public function search($word) {
 	$con = $this->getConnect();
-	$sqlQuery = "SELECT stadium_name, foundation, capacity FROM stadiums WHERE `stadium_name` LIKE '%".$part_of_word."%'";
+	$sqlQuery = "SELECT clubs.name, clubs.foundation, clubs.trophies, clubs.budget, countries.city, countries.country, persons.last_name, stadiums.stadium_name, leagues.league_name
+					FROM clubs
+					JOIN countries ON clubs.country_id = countries.id
+					JOIN persons ON clubs.person_id = persons.id
+					JOIN stadiums ON clubs.stadium_id = stadiums.id
+					JOIN leagues ON clubs.league_id = leagues.id
+					WHERE `name` LIKE '%".$word."%'";
 	$result = $this->getQueryResult($con, $sqlQuery);?>
 	<table border=3>
 		<tr>
-			<th>Stadium name</th>
-			<th>Year of foundation</th>
-			<th>Capacity</th>
+			<th>Club name</th>
+			<th>City</th>
+			<th>Country</th>
+			<th>President</th>
+			<th>Foundation</th>
+			<th>Trophies</th>
+			<th>Budget</th>
+			<th>League</th>
+			<th>Stadium</th>
 		</tr> <?
-	while($row = mysql_fetch_array($result,MYSQL_ASSOC)) {?>
+	while($clubs = mysql_fetch_array($result,MYSQL_ASSOC)) {?>
 		<tr>
-			<td><?print($persons['first_name'])?></td>
-			<td><?print($persons['last_name'])?></td>
+			<td><?print($clubs['name'])?></td>
+			<td><?print($clubs['city'])?></td>
+			<td><?print($clubs['country'])?></td>
+			<td><?print($clubs['last_name'])?></td>
+			<td><?print($clubs['foundation'])?></td>
+			<td><?print($clubs['trophies'])?></td>
+			<td><?print($clubs['budget'])?></td>
+			<td><?print($clubs['league_name'])?></td>
+			<td><?print($clubs['stadium_name'])?></td>
 		</tr>
 		<?} ?>
 	</table><?
@@ -134,11 +153,11 @@ public function search($part_of_word) {
 	public static function getList() {
 	$db = new Database();
 	$con = $db->getConnect();
-	$sqlQuery = "SELECT `id`, `league_name` FROM `leagues`";
+	$sqlQuery = "SELECT `id`, `name` FROM `clubs`";
 	$result = $db->getQueryResult($con, $sqlQuery);
-	print("<select name='leagues'>");
-	while($leagues = mysql_fetch_array($result,MYSQL_ASSOC)) {
-		print("<option value='".$leagues['id']."'>".$leagues['league_name']."</option>");
+	print("<select name='clubs'>");
+	while($clubs = mysql_fetch_array($result,MYSQL_ASSOC)) {
+		print("<option value='".$clubs['id']."'>".$clubs['name']."</option>");
 		}
 	print("</select>");
 	$db->closeConnection($result, $con);
